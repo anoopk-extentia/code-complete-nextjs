@@ -12,6 +12,10 @@
     "test:watch": "npm run test -- --watch",
     "test:cov": "jest --coverage --env=jsdom"
   },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "dependencies": {
     "next": "12.1.0",
     "react": "17.0.2",
