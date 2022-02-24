@@ -44,7 +44,7 @@ Main goal is to provide a seed repository for a nextjs web application that has 
 
 ### Installation
 
-git clone https://github.com/anoopk-extentia/code-complete-nextjs.git
+git clone https://github.com/fayez-baig/code-complete-nextjs.git
 
 npm install
 
