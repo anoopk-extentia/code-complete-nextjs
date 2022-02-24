@@ -1,34 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <h1 align="center">Code Complete</h1>
 
-## Getting Started
+  <p align="center">
+    A boot repository that has some good practices for Frontend.
+    <br />
+  </p>
+</p>
 
-First, run the development server:
+<!-- TABLE OF CONTENTS -->
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [About the Project](#about-the-project)
+  - [Motivation](#motivation)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Run and Test](#run-and-test)
+- [Stay in touch](#stay-in-touch)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# About the project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+A boot repository that has some good practices for Frontend. Built on [nextjs](https://nextjs.org/) and use modern Javascript powered by
+[Typescript](https://www.typescriptlang.org/).
+To use, fork into your rep and start having fun.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Motivation
 
-## Learn More
+Main goal is to provide a seed repository for a nextjs web application that has some develpoment and deployment patterns wired in. Most of these patterns need no further maintainence. They are meant to keep programmers on the 'straight-n-narrow' without getting too much in their way.
 
-To learn more about Next.js, take a look at the following resources:
+### Built With
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [nextjs](https://nextjs.com/) - The web framework used
+- [Typescript](https://www.typescriptlang.org/) - Main Language
+- [typeorm](https://github.com/inversify/InversifyJS/) - Used for dependency Injection
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Getting Started
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Important!** Requires Docker Desktop for local deployments.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Installation
+
+git clone https://github.com/anoopk-extentia/code-complete-nextjs.git
+
+npm install
+
+Correct the information within these files
+
+docker-compose up --build
+
+### Run and Test
+
+localhost:3000
+
+### Application Documentation
+
+npm install -g @compodoc/compodoc
+
+npx @compodoc/compodoc -p tsconfig.json -s
+
+[AppDoc] http://127.0.0.1:8080
+
+### After Installation
+
+Delete the current modules
+
+The game, as Sherlock would say, is on
+
+### Practices Included
+
+Pre-commit hook to run linter/new tests (skip using -n with commit)
+
+Unit Tests (Controller and Service)
+
+Open API (Swagger)
+
+Docker based setup for local deployments
+
+Github Workflow (ci.yml)
+
+CI Includes (linter, unit tests, test coverage, Snyk audit)
+
+Strict Type Checking
+
+Semantic Versioning
+
+Insecure code pattern detection via [njsscan] https://github.com/ajinabraham/njsscan#github-action
+
+### Practices Outstanding
+
+CD - AWS\Azure\Heroku
+
+Obervability via OpenTelemetry
+
+Integration tests
+
+Penetration tests
+
+OWASP Cheatsheet
+
+### Addons
+
+App Documentation via [Compodoc] https://compodoc.app/ (npx @compodoc/compodoc -p tsconfig.json -s)
+
+# Talk to me
+
+- anoop.kumar@extentia.com
