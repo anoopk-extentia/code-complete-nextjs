@@ -1,0 +1,61 @@
+name: push
+on: 
+  push:
+    branches: 
+      - main
+      - '**'
+
+jobs:
+  njsscan:
+    runs-on: ubuntu-latest
+    name: njsscan check
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+    - name: nodejsscan scan
+      id: njsscan
+      uses: ajinabraham/njsscan-action@master
+      with:
+        args: '.'
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}        
+  CI:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [17.x]
+    
+    steps:
+      
+      - name: Copy repository
+        uses: actions/checkout@v2
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install vi CI
+        run: npm ci
+
+      - name: Audit
+        run: npm audit
+      
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+      
+      - name: Test
+        run: npm run test
+
+      - name: Run Coverage
+        run: npm run test:cov
