@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { axiosInstance } from "services/axiosInstance";
+import { Table, TRow, THead, TData, THeading, TBody } from "components";
 
 const Home: NextPage = () => {
   const [apiRes, setApiRes] = useState([]);
@@ -17,7 +18,6 @@ const Home: NextPage = () => {
         setApiRes(data);
         setUserApi(usersData);
       } catch (err) {
-        console.log(err);
         setIsError(true);
       }
     };
@@ -35,19 +35,41 @@ const Home: NextPage = () => {
 
       {usersApi.length ? (
         <main className={styles.main}>
-          <div>Names</div>
-          <ul>
-            {apiRes.map(({ id, text }) => (
-              <li key={id}>{text}</li>
-            ))}
-          </ul>
+          <div>Names Table</div>
+          <Table>
+            <THeading>
+              <TRow>
+                <THead>Id</THead>
+                <THead>Name</THead>
+              </TRow>
+            </THeading>
+            <TBody>
+              {apiRes.map(({ id, text }) => (
+                <TRow key={id}>
+                  <TData>{id}</TData>
+                  <TData>{text}</TData>
+                </TRow>
+              ))}
+            </TBody>
+          </Table>
           <hr />
-          <div>Users</div>
-          <ul>
-            {usersApi.map(({ id, name }) => (
-              <li key={id}>{name}</li>
-            ))}
-          </ul>
+          <div>Users Table</div>
+          <Table>
+            <THeading>
+              <TRow>
+                <THead>Id</THead>
+                <THead>Name</THead>
+              </TRow>
+            </THeading>
+            <TBody>
+              {usersApi.map(({ id, name }) => (
+                <TRow key={id}>
+                  <TData>{id}</TData>
+                  <TData>{name}</TData>
+                </TRow>
+              ))}
+            </TBody>
+          </Table>
         </main>
       ) : (
         <div>Loading...</div>
