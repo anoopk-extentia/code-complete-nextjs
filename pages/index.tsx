@@ -1,8 +1,30 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
+import { axiosInstance } from "services/axiosInstance";
 
 const Home: NextPage = () => {
+  const [apiRes, setApiRes] = useState([]);
+  const [usersApi, setUserApi] = useState([]);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const apiCall = async () => {
+      try {
+        const { data } = await axiosInstance.get(`/v0/names`);
+        const { data: usersData } = await axiosInstance.get(`/v0/users`);
+        setApiRes(data);
+        setUserApi(usersData);
+      } catch (err) {
+        console.log(err);
+        setIsError(true);
+      }
+    };
+    apiCall();
+  }, []);
+
+  if (isError) return <>Something went wrong !!</>;
   return (
     <div className={styles.container}>
       <Head>
@@ -11,9 +33,25 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Hello world</h1>
-      </main>
+      {usersApi.length ? (
+        <main className={styles.main}>
+          <div>Names</div>
+          <ul>
+            {apiRes.map(({ id, text }) => (
+              <li key={id}>{text}</li>
+            ))}
+          </ul>
+          <hr />
+          <div>Users</div>
+          <ul>
+            {usersApi.map(({ id, name }) => (
+              <li key={id}>{name}</li>
+            ))}
+          </ul>
+        </main>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };
