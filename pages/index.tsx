@@ -1,8 +1,30 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
+import { axiosInstance } from "services/axiosInstance";
+import { Table, TRow, THead, TData, THeading, TBody } from "components";
 
 const Home: NextPage = () => {
+  const [apiRes, setApiRes] = useState([]);
+  const [usersApi, setUserApi] = useState([]);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const apiCall = async () => {
+      try {
+        const { data } = await axiosInstance.get(`/v0/names`);
+        const { data: usersData } = await axiosInstance.get(`/v0/users`);
+        setApiRes(data);
+        setUserApi(usersData);
+      } catch (err) {
+        setIsError(true);
+      }
+    };
+    apiCall();
+  }, []);
+
+  if (isError) return <>Something went wrong !!</>;
   return (
     <div className={styles.container}>
       <Head>
@@ -11,9 +33,47 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Hello world</h1>
-      </main>
+      {usersApi.length ? (
+        <main className={styles.main}>
+          <div>Names Table</div>
+          <Table>
+            <THeading>
+              <TRow>
+                <THead>Id</THead>
+                <THead>Name</THead>
+              </TRow>
+            </THeading>
+            <TBody>
+              {apiRes.map(({ id, text }) => (
+                <TRow key={id}>
+                  <TData>{id}</TData>
+                  <TData>{text}</TData>
+                </TRow>
+              ))}
+            </TBody>
+          </Table>
+          <hr />
+          <div>Users Table</div>
+          <Table>
+            <THeading>
+              <TRow>
+                <THead>Id</THead>
+                <THead>Name</THead>
+              </TRow>
+            </THeading>
+            <TBody>
+              {usersApi.map(({ id, name }) => (
+                <TRow key={id}>
+                  <TData>{id}</TData>
+                  <TData>{name}</TData>
+                </TRow>
+              ))}
+            </TBody>
+          </Table>
+        </main>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };
