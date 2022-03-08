@@ -1,3 +1,3 @@
 export interface State {
-  tick?: string;
+  tick: string;
 }

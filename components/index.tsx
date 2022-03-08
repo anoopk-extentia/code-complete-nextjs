@@ -4,3 +4,4 @@ export { default as TBody } from "./Table/TBody";
 export { default as TRow } from "./Table/TRow";
 export { default as THead } from "./Table/THead";
 export { default as TData } from "./Table/TData";
+export { default as Ccwidget } from "./ccwidget/ccwidget";
