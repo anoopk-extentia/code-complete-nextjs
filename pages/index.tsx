@@ -6,7 +6,7 @@ import { axiosInstance } from "services/axiosInstance";
 import { IWidgetsData } from "utils/types";
 
 const Home: NextPage = () => {
-  const [widgetList, setWidgetList] = useState([]);
+  const [_, setWidgetList] = useState([]);
   const [widgetsData, setWidgetsData] = useState<IWidgetsData[]>([]);
   const [isError, setIsError] = useState(false);
 
@@ -19,7 +19,6 @@ const Home: NextPage = () => {
         if (data) {
           const result = await Promise.all(
             data.map(async ({ widget_id }: { [x: string]: number }) => {
-              console.log(`/subscribers/1/widget/${widget_id}`);
               const { data } = await axiosInstance.get(
                 `/subscribers/1/widget/${widget_id}`
               );
@@ -36,8 +35,8 @@ const Home: NextPage = () => {
     apiCall();
   }, []);
 
-  // console.log(widgetsData);
   if (isError) return <>Something went wrong !!</>;
+
   return (
     <div className={styles.container}>
       <Head>
