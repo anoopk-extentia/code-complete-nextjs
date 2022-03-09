@@ -40,7 +40,7 @@ export const getWidget = ({
 }) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType[`INIT_CC_WIDGET_${widgetId}`],
+      type: ActionType[`INIT_CC_WIDGET_TEMPLATE_${widgetId}`],
     });
 
     try {
@@ -48,13 +48,13 @@ export const getWidget = ({
         `/subscribers/${subscriberId}/widget/${widgetId}`
       );
       dispatch({
-        type: ActionType[`CC_WIDGET_${widgetId}_SUCCESS`],
+        type: ActionType[`CC_WIDGET_TEMPLATE_${widgetId}_SUCCESS`],
         payload: data,
       });
     } catch (error) {
       if (error instanceof Error)
         dispatch({
-          type: ActionType[`CC_WIDGET_${widgetId}_ERROR`],
+          type: ActionType[`CC_WIDGET_TEMPLATE_${widgetId}_ERROR`],
           payload: error?.message || "SOME THING WENT WRONG",
         });
     }

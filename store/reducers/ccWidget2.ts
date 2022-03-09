@@ -14,17 +14,17 @@ export const ccWidget2Reducer = (state = initialState, action: AnyAction) => {
     case HYDRATE:
       // Attention! This will overwrite client state! Real apps should use proper reconciliation.
       return { ...state, ...action.payload };
-    case ActionType.INIT_CC_WIDGET_2:
+    case ActionType.INIT_CC_WIDGET_TEMPLATE_2:
       return { ...state, isLoading: true };
 
-    case ActionType.CC_WIDGET_2_SUCCESS:
+    case ActionType.CC_WIDGET_TEMPLATE_2_SUCCESS:
       return {
         ...state,
         isLoading: false,
         data: action.payload,
       };
 
-    case ActionType.CC_WIDGET_2_ERROR:
+    case ActionType.CC_WIDGET_TEMPLATE_2_ERROR:
       return {
         ...state,
         isLoading: false,
