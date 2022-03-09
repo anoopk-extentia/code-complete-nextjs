@@ -1,7 +1,3 @@
-import { IWidgetList } from "utils/types";
+import { initialState } from "./widgetListReducer";
 
-export interface IState {
-  isLoading: boolean;
-  isError: boolean;
-  data: any;
-}
+export type IState = typeof initialState;

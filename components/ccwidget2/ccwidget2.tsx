@@ -7,9 +7,9 @@ interface CCwidget2Props {
   subscriberId: number;
 }
 const CCwidget2: FC<CCwidget2Props> = ({ widgetId, subscriberId }) => {
-  const { getWidget2 } = useActions();
+  const { getWidget } = useActions();
   useEffect(() => {
-    getWidget2({ subscriberId, widgetId });
+    getWidget({ subscriberId, widgetId });
   }, []);
 
   const {

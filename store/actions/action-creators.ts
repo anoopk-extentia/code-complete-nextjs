@@ -17,16 +17,17 @@ export const getWidgetList = ({ subscriberId }: { [x: string]: number }) => {
         type: ActionType.GET_WIDGET_SUCCESS,
         payload: data,
       });
-    } catch (error: any) {
-      dispatch({
-        type: ActionType.GET_WIDGET_ERROR,
-        payload: error?.message || "SOME THING WENT WRONG",
-      });
+    } catch (error) {
+      if (error instanceof Error)
+        dispatch({
+          type: ActionType.GET_WIDGET_ERROR,
+          payload: error?.message || "SOME THING WENT WRONG",
+        });
     }
   };
 };
 
-export const getWidget1 = ({
+export const getWidget = ({
   widgetId,
   subscriberId,
 }: {
@@ -34,7 +35,7 @@ export const getWidget1 = ({
 }) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType.INIT_CC_WIDGET_1,
+      type: ActionType[`INIT_CC_WIDGET_${widgetId}`],
     });
 
     try {
@@ -42,42 +43,15 @@ export const getWidget1 = ({
         `/subscribers/${subscriberId}/widget/${widgetId}`
       );
       dispatch({
-        type: ActionType.CC_WIDGET_1_SUCCESS,
+        type: ActionType[`CC_WIDGET_${widgetId}_SUCCESS`],
         payload: data,
       });
-    } catch (error: any) {
-      dispatch({
-        type: ActionType.CC_WIDGET_1_ERROR,
-        payload: error?.message || "SOME THING WENT WRONG",
-      });
-    }
-  };
-};
-
-export const getWidget2 = ({
-  widgetId,
-  subscriberId,
-}: {
-  [x: string]: number;
-}) => {
-  return async (dispatch: Dispatch<Action>) => {
-    dispatch({
-      type: ActionType.INIT_CC_WIDGET_2,
-    });
-
-    try {
-      const { data } = await axiosInstance.get(
-        `/subscribers/${subscriberId}/widget/${widgetId}`
-      );
-      dispatch({
-        type: ActionType.CC_WIDGET_2_SUCCESS,
-        payload: data,
-      });
-    } catch (error: any) {
-      dispatch({
-        type: ActionType.CC_WIDGET_2_ERROR,
-        payload: error?.message || "SOME THING WENT WRONG",
-      });
+    } catch (error) {
+      if (error instanceof Error)
+        dispatch({
+          type: ActionType[`CC_WIDGET_${widgetId}_ERROR`],
+          payload: error?.message || "SOME THING WENT WRONG",
+        });
     }
   };
 };
