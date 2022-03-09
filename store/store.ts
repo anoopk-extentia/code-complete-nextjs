@@ -6,7 +6,7 @@ import rootReducers from "./reducers";
 import { AppStore } from "./reducers/reducer.interface";
 
 // create a makeStore function
-const initStore = (initialState = {}) => {
+export const initStore = (initialState = {}) => {
   return createStore(
     rootReducers,
     initialState,

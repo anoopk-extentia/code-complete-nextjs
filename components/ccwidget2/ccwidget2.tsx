@@ -2,21 +2,21 @@ import { FC, useEffect } from "react";
 import { useActions } from "hooks/useActions";
 import { useTypedSelector } from "hooks/useTypedSelector";
 
-interface CCwidgetProps {
+interface CCwidget2Props {
   widgetId: number;
   subscriberId: number;
 }
-const CCwidget: FC<CCwidgetProps> = ({ widgetId, subscriberId }) => {
-  const { getWidget1 } = useActions();
+const CCwidget2: FC<CCwidget2Props> = ({ widgetId, subscriberId }) => {
+  const { getWidget2 } = useActions();
   useEffect(() => {
-    getWidget1({ subscriberId, widgetId });
+    getWidget2({ subscriberId, widgetId });
   }, []);
 
   const {
     isError,
     isLoading,
     data: { widget_title },
-  } = useTypedSelector(({ ccWidget1 }) => ccWidget1);
+  } = useTypedSelector(({ ccWidget2 }) => ccWidget2);
 
   if (isLoading)
     return (
@@ -33,4 +33,4 @@ const CCwidget: FC<CCwidgetProps> = ({ widgetId, subscriberId }) => {
   );
 };
 
-export default CCwidget;
+export default CCwidget2;

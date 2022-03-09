@@ -1,9 +1,7 @@
-export interface InitialState {
-  isLoading: boolean;
-  data: {};
-  error: string;
-}
+import { IState } from "./types";
 
 export interface AppStore {
-  data: InitialState;
+  widgetList: IState;
+  ccWidget1: IState;
+  ccWidget2: IState;
 }

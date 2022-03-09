@@ -1,4 +1,15 @@
-export interface IWidgetsData {
+export interface IWidgetList {
+  success: number;
+  data: WidgetDataEntity;
+}
+export interface WidgetDataEntity {
+  widget_id: number;
+  widget_title: string;
+  widget_type: string;
+  widget_query: string;
+}
+
+export interface IWidgetsList {
   success: number;
   subscriber_id: number;
   widget_id: number;
@@ -6,7 +17,7 @@ export interface IWidgetsData {
   widget_type: string;
   widget_query: string;
   columns: number;
-  data?: DataEntity[] | null;
+  data: DataEntity[];
 }
 
 export interface DataEntity {

@@ -1,61 +1,20 @@
+import { createRenderer } from "react-test-renderer/shallow";
 import Home from "pages";
-import { render, screen, waitFor } from "@testing-library/react";
-import { rest } from "msw";
-import { setupServer } from "msw/node";
+import { Provider } from "react-redux";
+import { initStore } from "store";
 
-const usersResponse = rest.get(`*/v0/users`, (req, res, ctx) => {
-  return res(
-    ctx.json([
-      {
-        id: 1,
-        name: "Saurabh",
-      },
-    ])
-  );
-});
+const renderer = createRenderer();
 
-const namesResponse = rest.get(`*/v0/names`, (req, res, ctx) => {
-  return res(
-    ctx.json([
-      {
-        id: 1,
-        text: "hello world 2",
-        role: null,
-      },
-    ])
-  );
-});
-
-const errorHandler = rest.get("*", (req, res, ctx) =>
-  res.networkError("Boom there was error")
-);
-
-const handlers = [usersResponse, namesResponse];
-
-const server = setupServer(...handlers);
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+const store = initStore();
 
 describe("Home Page", () => {
-  it("Users API called successfully", async () => {
-    render(<Home />);
-    await waitFor(() => expect(screen.getByText("Saurabh")).toBeVisible());
-  });
-
-  it("Names API called successfully", async () => {
-    render(<Home />);
-    await waitFor(() =>
-      expect(screen.getByText("hello world 2")).toBeVisible()
+  it("home page renders without crashing", async () => {
+    renderer.render(
+      <Provider store={store}>
+        <Home />
+      </Provider>
     );
-  });
-
-  it("API call failed", async () => {
-    server.use(errorHandler);
-    render(<Home />);
-    await waitFor(() =>
-      expect(screen.getByText("Something went wrong !!")).toBeVisible()
-    );
+    const renderedOutput = renderer.getRenderOutput();
+    expect(renderedOutput).toMatchSnapshot();
   });
 });
