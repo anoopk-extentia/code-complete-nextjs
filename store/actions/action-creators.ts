@@ -41,7 +41,6 @@ export const getWidget1 = ({
       const { data } = await axiosInstance.get(
         `/subscribers/${subscriberId}/widget/${widgetId}`
       );
-      console.log(data);
       dispatch({
         type: ActionType.CC_WIDGET_1_SUCCESS,
         payload: data,
@@ -70,7 +69,6 @@ export const getWidget2 = ({
       const { data } = await axiosInstance.get(
         `/subscribers/${subscriberId}/widget/${widgetId}`
       );
-      console.log(data);
       dispatch({
         type: ActionType.CC_WIDGET_2_SUCCESS,
         payload: data,
