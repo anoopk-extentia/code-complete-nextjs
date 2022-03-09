@@ -1,6 +1,5 @@
 import { AnyAction } from "redux";
 import { HYDRATE } from "next-redux-wrapper";
-import { IState } from "./types";
 import { ActionType } from "store/actions/action-types";
 
 const initialState = {
@@ -10,10 +9,7 @@ const initialState = {
   errorMsg: "",
 };
 // create your reducer
-export const ccWidget2Reducer = (
-  state: IState = initialState,
-  action: AnyAction
-) => {
+export const ccWidget2Reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case HYDRATE:
       // Attention! This will overwrite client state! Real apps should use proper reconciliation.

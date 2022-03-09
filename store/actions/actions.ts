@@ -1,17 +1,17 @@
 import { ActionType } from "./action-types";
 import { IWidgetList } from "utils/types";
 
-interface initGetWigetListAction {
-  type: ActionType.INIT_GET_WIDGET_LIST;
+interface initGetSubscriberDashboardAction {
+  type: ActionType.INIT_GET_SUBSCRIBER_DASHBOARD;
 }
 
-interface getWidgetListSuccessAction {
-  type: ActionType.GET_WIDGET_SUCCESS;
+interface getSubscriberDashboardSuccessAction {
+  type: ActionType.GET_SUBSCRIBER_DASHBOARD_SUCCESS;
   payload: IWidgetList;
 }
 
-interface getWidgetListErrorAction {
-  type: ActionType.GET_WIDGET_ERROR;
+interface getSubscriberDashboardErrorAction {
+  type: ActionType.GET_SUBSCRIBER_DASHBOARD_ERROR;
   payload: string;
 }
 
@@ -44,9 +44,9 @@ interface getWidget2ErrorAction {
 }
 
 export type Action =
-  | initGetWigetListAction
-  | getWidgetListSuccessAction
-  | getWidgetListErrorAction
+  | initGetSubscriberDashboardAction
+  | getSubscriberDashboardSuccessAction
+  | getSubscriberDashboardErrorAction
   | initGetWiget1Action
   | getWidget1SuccessAction
   | getWidget1ErrorAction

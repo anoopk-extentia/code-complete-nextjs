@@ -1,12 +1,10 @@
 export interface IWidgetList {
   success: number;
-  data: WidgetDataEntity;
+  data: WidgetDataEntity[];
 }
 export interface WidgetDataEntity {
   widget_id: number;
-  widget_title: string;
-  widget_type: string;
-  widget_query: string;
+  subscriber_id: number;
 }
 
 export interface IWidgetsList {

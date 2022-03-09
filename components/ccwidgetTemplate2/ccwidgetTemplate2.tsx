@@ -28,7 +28,7 @@ const CCwidget2: FC<CCwidget2Props> = ({ widgetId, subscriberId }) => {
 
   return (
     <div className="max-w-2xl w-[90%] px-8 py-4 mx-auto bg-white rounded-lg shadow-md">
-      {widget_title}
+      {widget_title + widgetId}
     </div>
   );
 };

@@ -1,7 +1,21 @@
-import { IState } from "./types";
+import { IWidgetList, IWidgetsList } from "utils/types";
+
+export interface InitialStateCCWidget {
+  isLoading: boolean;
+  data: IWidgetsList;
+  isError: boolean;
+  errorMsg: string;
+}
+
+export interface InitialStateWidgetList {
+  isLoading: boolean;
+  data: IWidgetList;
+  isError: boolean;
+  errorMsg: string;
+}
 
 export interface AppStore {
-  widgetList: IState;
-  ccWidget1: IState;
-  ccWidget2: IState;
+  widgetList: InitialStateWidgetList;
+  ccWidget1: InitialStateCCWidget;
+  ccWidget2: InitialStateCCWidget;
 }
