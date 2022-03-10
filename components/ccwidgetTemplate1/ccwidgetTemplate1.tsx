@@ -9,11 +9,10 @@ const CCWidgetTemplate1: FC<CCWidgetTemplate1Props> = ({
   widgetId,
   subscriberId,
 }) => {
-  const {
-    isError,
-    isLoading,
-    data: { widget_title },
-  } = useGetWidgetTemplateData({ subscriberId, widgetId });
+  const { isError, isLoading, data } = useGetWidgetTemplateData({
+    subscriberId,
+    widgetId,
+  });
 
   if (isLoading)
     return (

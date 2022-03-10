@@ -1,5 +1,6 @@
 import { useState, useEffect, FC } from "react";
 import { axiosInstance } from "services/axiosInstance";
+import { IWidgetsList } from "utils/types";
 
 interface useGetWidgetTemplateDataProps {
   widgetId: number;
@@ -10,7 +11,7 @@ export const useGetWidgetTemplateData = ({
   subscriberId,
 }: useGetWidgetTemplateDataProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<IWidgetsList>();
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
