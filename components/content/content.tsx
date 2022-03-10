@@ -39,7 +39,7 @@ function Content({ listOfWidgets }) {
       >
         {listOfWidgets.map(({ widget_id }) => (
           <div
-            key={widget_id}
+            key={String(widget_id)}
             className="widget"
             data-grid={{ w: 3, h: 2, x: 0, y: Infinity }}
           >
