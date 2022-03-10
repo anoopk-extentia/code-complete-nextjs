@@ -16,6 +16,4 @@ export interface InitialStateWidgetList {
 
 export interface AppStore {
   widgetList: InitialStateWidgetList;
-  ccWidget1: InitialStateCCWidget;
-  ccWidget2: InitialStateCCWidget;
 }

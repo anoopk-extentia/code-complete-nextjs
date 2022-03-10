@@ -9,7 +9,7 @@ import { Content } from "components";
 const Home: NextPage = () => {
   const { getSubscribersDashboard } = useActions();
   useEffect(() => {
-    // getSubscribersDashboard({ subscriberId: 1 });
+    getSubscribersDashboard({ subscriberId: 1 });
   }, []);
 
   const { isError, isLoading, data } = useTypedSelector(

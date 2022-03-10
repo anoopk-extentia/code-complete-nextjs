@@ -1,22 +1,19 @@
-import { FC, useEffect } from "react";
-import { useActions } from "hooks/useActions";
-import { useTypedSelector } from "hooks/useTypedSelector";
+import { FC } from "react";
+import { useGetWidgetTemplateData } from "hooks/useGetWidgetTemplateData";
 
-interface CCwidgetProps {
+interface CCWidgetTemplate1Props {
   widgetId: number;
   subscriberId: number;
 }
-const CCwidget: FC<CCwidgetProps> = ({ widgetId, subscriberId }) => {
-  const { getWidget } = useActions();
-  useEffect(() => {
-    getWidget({ subscriberId, widgetId });
-  }, []);
-
+const CCWidgetTemplate1: FC<CCWidgetTemplate1Props> = ({
+  widgetId,
+  subscriberId,
+}) => {
   const {
     isError,
     isLoading,
     data: { widget_title },
-  } = useTypedSelector(({ ccWidget1 }) => ccWidget1);
+  } = useGetWidgetTemplateData({ subscriberId, widgetId });
 
   if (isLoading)
     return (
@@ -27,10 +24,10 @@ const CCwidget: FC<CCwidgetProps> = ({ widgetId, subscriberId }) => {
   if (isError) return <>Something went wrong !!</>;
 
   return (
-    <div className="max-w-2xl w-[90%] px-8 py-4 mx-auto bg-white rounded-lg shadow-md">
-      {widget_title + widgetId}
+    <div className="max-w-2xl w-[90%] px-8 py-4 mx-auto bg-white rounded-lg shadow-md cursor-pointer">
+      {"Widget template " + widgetId}
     </div>
   );
 };
 
-export default CCwidget;
+export default CCWidgetTemplate1;
