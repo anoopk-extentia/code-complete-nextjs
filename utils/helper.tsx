@@ -7,6 +7,7 @@ export const getWidgets = (widgetTemplateId: number, subscriberId: number) => {
         <CCwidgetTemplate1
           widgetId={widgetTemplateId}
           subscriberId={subscriberId}
+          title="Recommended For You"
         />
       );
     case 2:
@@ -14,6 +15,7 @@ export const getWidgets = (widgetTemplateId: number, subscriberId: number) => {
         <CCwidgetTemplate1
           widgetId={widgetTemplateId}
           subscriberId={subscriberId}
+          title="Recently Viewed"
         />
       );
     default:

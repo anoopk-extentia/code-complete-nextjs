@@ -5,10 +5,12 @@ import UserCard from "components/user-info-card/user-info-card.component";
 interface CCWidgetTemplate1Props {
   widgetId: number;
   subscriberId: number;
+  title: string;
 }
 const CCWidgetTemplate1: FC<CCWidgetTemplate1Props> = ({
   widgetId,
   subscriberId,
+  title,
 }) => {
   const { isError, isLoading, data } = useGetWidgetTemplateData({
     subscriberId,
@@ -25,7 +27,7 @@ const CCWidgetTemplate1: FC<CCWidgetTemplate1Props> = ({
 
   return (
     <>
-      <h1 className="m-1 text-lg font-bold">Recommended For You</h1>
+      <h1 className="m-1 text-lg font-bold">{title}</h1>
       <div className="grid grid-cols-2 gap-2">
         {data?.data.slice(0, 2).map((user) => (
           <UserCard

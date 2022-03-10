@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Responsive as ResponsiveGridLayout } from "react-grid-layout";
 import { getWidgets } from "utils/helper";
 
-function Content({ listOfWidgets }) {
+const Content = ({ listOfWidgets }) => {
   const initialLayouts = {
     lg: listOfWidgets,
   };
@@ -49,7 +49,7 @@ function Content({ listOfWidgets }) {
       </ResponsiveGridLayout>
     </>
   );
-}
+};
 
 export default Content;
 
