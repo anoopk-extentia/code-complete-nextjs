@@ -1,8 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+/**
+ * Filename: _app.tsx \
+ * Description: This is entry point for the website \
+ * Extentia: Copyright (c) 2022
+ */
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import '../styles/globals.css';
 
-export default MyApp
+import React, { FC } from 'react';
+import { AppProps } from 'next/app';
+import { wrapper } from '../store/store';
+
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => <Component {...pageProps} />;
+
+export default wrapper.withRedux(MyApp);

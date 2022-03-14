@@ -11,14 +11,14 @@
 
 # Table of Contents
 
-- [About the Project](#about-the-project)
-  - [Motivation](#motivation)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Run and Test](#run-and-test)
-- [Stay in touch](#stay-in-touch)
+-   [About the Project](#about-the-project)
+    -   [Motivation](#motivation)
+    -   [Built With](#built-with)
+-   [Getting Started](#getting-started)
+    -   [Prerequisites](#prerequisites)
+    -   [Installation](#installation)
+    -   [Run and Test](#run-and-test)
+-   [Stay in touch](#stay-in-touch)
 
 # About the project
 
@@ -32,9 +32,9 @@ Main goal is to provide a seed repository for a nextjs web application that has 
 
 ### Built With
 
-- [nextjs](https://nextjs.com/) - The web framework used
-- [Typescript](https://www.typescriptlang.org/) - Main Language
-- [typeorm](https://github.com/inversify/InversifyJS/) - Used for dependency Injection
+-   [nextjs](https://nextjs.com/) - The web framework used
+-   [Typescript](https://www.typescriptlang.org/) - Main Language
+-   [typeorm](https://github.com/inversify/InversifyJS/) - Used for dependency Injection
 
 # Getting Started
 
@@ -108,4 +108,4 @@ App Documentation via [Compodoc] https://compodoc.app/ (npx @compodoc/compodoc -
 
 # Talk to me
 
-- anoop.kumar@extentia.com
+-   anoop.kumar@extentia.com
