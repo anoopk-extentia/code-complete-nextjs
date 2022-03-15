@@ -1,8 +1,9 @@
 /**
  * Filename: loader.reducer.test.tsx \
- * Description: This is the loader test case file.\
+ * Description: This is the loader reducer test case file.\
  * Extentia: Copyright (c) 2022
  */
+
 import { cleanup } from '@testing-library/react';
 
 import { loaderReducer } from 'store/reducers/loader.reducer';

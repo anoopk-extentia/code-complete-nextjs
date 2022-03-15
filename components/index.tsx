@@ -5,8 +5,9 @@
  */
 
 export { default as LoaderComponent } from './loader/loader.component';
+export { default as ButtonComponent } from './button/button.component';
 
 /**
  * @exports LoaderComponent
+ * @exports ButtonComponent
  */
-

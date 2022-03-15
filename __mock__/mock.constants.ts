@@ -4,7 +4,13 @@
  * Extentia: Copyright (c) 2022
  */
 
-export enum MockConstants {
-    LOADER_LABEL = 'loading',
-    LOADER_DEFAULT_LABEL = 'Loading...',
-}
+const MockConstant = {
+    LOADER_LABEL: 'loading',
+    LOADER_DEFAULT_LABEL: 'Loading...',
+    TEXT_BUTTON: 'Click me',
+    DATA: [{ log: 'isEnabled' }],
+};
+
+const MockConstants = Object.freeze(MockConstant);
+
+export { MockConstants };
