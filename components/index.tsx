@@ -1,6 +1,13 @@
-export { default as Table } from "./Table/Table";
-export { default as THeading } from "./Table/THeading";
-export { default as TBody } from "./Table/TBody";
-export { default as TRow } from "./Table/TRow";
-export { default as THead } from "./Table/THead";
-export { default as TData } from "./Table/TData";
+/**
+ * FileName: index.tsx
+ * Description: This file contains export for components.
+ * Extentia: Copyright (c) 2022
+ */
+
+export { default as LoaderComponent } from './loader/loader.component';
+export { default as ButtonComponent } from './button/button.component';
+
+/**
+ * @exports LoaderComponent
+ * @exports ButtonComponent
+ */

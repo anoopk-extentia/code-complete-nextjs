@@ -1,8 +1,21 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+/**
+ * Filename: _app.tsx \
+ * Description: This is entry point for the website \
+ * Extentia: Copyright (c) 2022
+ */
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import '../styles/globals.css';
+import { ApolloProvider } from '@apollo/client';
+import client from 'common/client';
 
-export default MyApp
+import React, { FC } from 'react';
+import { AppProps } from 'next/app';
+import { wrapper } from '../store/store';
+
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => (
+    <ApolloProvider client={client}>
+        <Component {...pageProps} />
+    </ApolloProvider>
+);
+
+export default wrapper.withRedux(MyApp);
