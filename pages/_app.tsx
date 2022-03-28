@@ -4,18 +4,14 @@
  * Extentia: Copyright (c) 2022
  */
 
-import '../styles/globals.css';
-import { ApolloProvider } from '@apollo/client';
-import client from 'common/client';
-
 import React, { FC } from 'react';
 import { AppProps } from 'next/app';
 import { wrapper } from '../store/store';
+import { LayoutContainer } from 'components';
+import '../styles/globals.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => (
-    <ApolloProvider client={client}>
-        <Component {...pageProps} />
-    </ApolloProvider>
+    <LayoutContainer Component={Component} {...pageProps} />
 );
 
 export default wrapper.withRedux(MyApp);

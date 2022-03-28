@@ -4,13 +4,13 @@
  * Extentia: Copyright (c) 2022
  */
 
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { IButtonProps } from './button.interface';
 
 /**
  * @exports
  * @function ButtonComponent
- * @returns {ReactElement}
+ * @returns {JSX.Element}
  */
 
 const ButtonComponent: FC<IButtonProps> = ({
@@ -19,7 +19,7 @@ const ButtonComponent: FC<IButtonProps> = ({
     onClick,
     type,
     className,
-}): ReactElement => {
+}): JSX.Element => {
     return (
         // eslint-disable-next-line react/button-has-type
         <button type={type || 'button'} className={className} disabled={disabled} onClick={onClick}>

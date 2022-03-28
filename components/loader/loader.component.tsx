@@ -4,7 +4,7 @@
  * Extentia: Copyright (c) 2022
  */
 
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { TestIdConstant } from 'common/test-id.constants';
 import { ILoaderProps } from './loader.interface';
 import { useTypedSelector } from 'hooks/useTypedSelector';
@@ -12,10 +12,10 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 /**
  * @exports
  * @function LoaderComponent
- * @returns {ReactElement}
+ * @returns {JSX.Element}
  */
 
-const LoaderComponent: FC<ILoaderProps> = (): ReactElement | null => {
+const LoaderComponent: FC<ILoaderProps> = (): JSX.Element | null => {
     const { isActive, label } = useTypedSelector(({ loader }) => loader);
 
     if (!isActive) return null;
