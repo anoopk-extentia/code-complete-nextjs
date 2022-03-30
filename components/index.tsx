@@ -18,6 +18,7 @@ export { default as SidebarItem } from './sidebar/sidebar-item/sidebar-item';
 export { default as LayoutContainer } from './layout-container/layout-container';
 export { default as Content } from './content/content.component';
 export { default as InputComponent } from './input/input.component';
+export { default as ModalComponent } from './modal/modal.component';
 
 /**
  * @exports LoaderComponent
@@ -32,4 +33,5 @@ export { default as InputComponent } from './input/input.component';
  * @exports LayoutContainer
  * @exports Content
  * @exports InputComponent
+ * @exports ModalComponent
  */

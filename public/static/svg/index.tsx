@@ -14,6 +14,7 @@ import { ReactComponent as SortIcon } from './sort.svg';
 import { ReactComponent as LeftArrowIcon } from './left-arrow.svg';
 import { ReactComponent as RightArrowIcon } from './right-arrow.svg';
 import { ReactComponent as UpArrowGreenIcon } from './up-arrow-green.svg';
+import { ReactComponent as InstituteIcon } from './institute.svg';
 
 export {
     MenuIcon,
@@ -26,4 +27,5 @@ export {
     LeftArrowIcon,
     RightArrowIcon,
     UpArrowGreenIcon,
+    InstituteIcon,
 };
