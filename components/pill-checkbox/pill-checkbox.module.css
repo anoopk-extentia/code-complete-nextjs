@@ -1,0 +1,60 @@
+.pillListItem {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.pillListItem input[type='checkbox'] {
+    display: none;
+}
+.pillListItem input[type='checkbox']:checked + .pillListLabel {
+    background-color: #2b3f84;
+    border: 1px solid #2b3f84;
+    color: #fff;
+    padding-right: 12px;
+    padding-left: 12px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+}
+.pillListLabel {
+    border: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    color: black;
+    padding: 7px 6px;
+    font-weight: 100;
+    font-size: 12px;
+    text-decoration: none;
+    line-height: 15px;
+    margin-right: 15px;
+
+    display: flex;
+    align-items: center;
+}
+.pillListItem input[type='checkbox']:checked + .pillListLabel .iconCheckLight {
+    display: inline-block;
+}
+.pillListItem input[type='checkbox']:checked + .pillListLabel .Icon--addLight,
+.pillListLabel .Icon--checkLight,
+.PillList-children {
+    display: none;
+}
+.pillListLabel .Icon {
+    width: 12px;
+    height: 12px;
+}
+.iconSmallest {
+    font-size: 12px;
+    line-height: 12px;
+}
+.icon {
+    background: transparent;
+    display: none;
+    font-style: normal;
+    vertical-align: baseline;
+    position: relative;
+    margin-left: 6px;
+}

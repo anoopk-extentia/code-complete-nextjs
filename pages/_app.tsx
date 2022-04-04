@@ -11,10 +11,13 @@ import client from 'common/client';
 import React, { FC } from 'react';
 import { AppProps } from 'next/app';
 import { wrapper } from '../store/store';
+import { LayoutContainerComponent } from 'components';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => (
     <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <LayoutContainerComponent>
+            <Component {...pageProps} />
+        </LayoutContainerComponent>
     </ApolloProvider>
 );
 
